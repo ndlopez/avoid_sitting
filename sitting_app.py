@@ -53,7 +53,7 @@ hr = StringVar()
 mi = StringVar()
 sec = StringVar()
 warn = StringVar()
-filename = r"sat_time2.csv"
+filename = r"sitting_time.csv"
 
 xPos=30
 yPos=20
@@ -184,7 +184,7 @@ def write_info(new_data):
 def plot_data(parent):
     figure = Figure(figsize=(6,4),dpi=100)
     figure_canvas = FigureCanvasTkAgg(figure,master=parent)
-    NavigationToolbar2Tk(figure_canvas)
+    # NavigationToolbar2Tk(figure_canvas)
     axes = figure.add_subplot()
 
     df = pd.read_csv(filename,parse_dates=['date'])
