@@ -194,7 +194,8 @@ def plot_data(parent):
     # the following works cuz splits string and calcs time in minutes
     df['sit_mins']=df['sitting_time'].str.split(':').apply(lambda x:int(x[0])*60+int(x[1])+int(x[2])/60)
 
-    axes.bar(df['date'],df['sit_mins'])
+    # axes.bar(df['date'],df['sit_mins'])
+    axes.scatter(df['date'],df['sit_mins'],marker='^')
     figure_canvas.draw()
 
     figure_canvas.get_tk_widget().pack(side=TOP, fill=BOTH,expand=1)
