@@ -1,8 +1,9 @@
-# Learn Tk
+# Sitting is the new smoking.
 
 Avoid sitting: GUI app built using Tkinter, Pandas, and Matplotlib
 
-![Sitting is the new smoking.](learn_tk/avoid_sitting.png)
+![init window](avoid_sitting.png)
+![over 35min](avoid_35min.png)
 
 This small app tells you how many minutes you have been sitting. Displaying a warning after 35 minutes. So to remind you to stand up. 
 
