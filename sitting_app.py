@@ -133,14 +133,15 @@ class SittingApp(tk.Tk):
                 # this function runs every second until STOP btn is pressed
                 # run_popUp(str(upTime))
                 self.attributes("-topmost", True)
+                # self.attributes("-topmost",False)
             else:
                 # miEntry.config({"background":"#ffffff"})
                 # secEntry.config({"background":"#ffffff"})
-                self.configure(bg=self.DEFAULT_COLOR)
+                self.configure({"background":self.DEFAULT_COLOR})
                 self.bot_msg.config({"background":self.DEFAULT_COLOR})
                 self.warn_msg.config({"background":self.DEFAULT_COLOR})
                 self.warn.set("")
-                self.attributes("-topmost", False)
+                # self.attributes('-topmost', 1)
 
             # hr.set("{0:2d}".format(hours))
             self.hr.set("{:02d}".format(hours))
