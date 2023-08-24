@@ -76,6 +76,9 @@ class SittingApp(tk.Tk):
 
         self.hrEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.hr,justify="center")
         self.hrEntry.place(x=xPos,y=yPos)
+        # gray out the whole entry, should use label instead
+        self.hrEntry.configure(state="disabled")
+    
         hrLabel = ttk.Label(self,text="HRS     MINS    SECS")
         hrLabel.place(x=xPos+10,y=yPos+offset)
 
