@@ -74,24 +74,31 @@ class SittingApp(tk.Tk):
         self.warn_msg = ttk.Label(self,text="",foreground="#ff0000", font=myFont,textvariable=self.warn)
         self.warn_msg.place(x=xPos,y=yPos+2*offset)
 
-        self.hrEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.hr,justify="center")
+        # self.hrEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.hr,justify="center")
+        self.hrEntry = ttk.Label(self,width=2,font=("Arial",18,""),textvariable=self.hr,justify="center")
         self.hrEntry.place(x=xPos,y=yPos)
+        self.hrEntry.config({"background":"#ffffff"})
         # gray out the whole entry, should use label instead
-        self.hrEntry.configure(state="disabled")
+        # self.hrEntry.configure(state="disabled")
     
-        hrLabel = ttk.Label(self,text="HRS     MINS    SECS")
-        hrLabel.place(x=xPos+10,y=yPos+offset)
+        self.hrLabel = ttk.Label(self,text="HRS        MINS      SECS")
+        self.hrLabel.place(x=xPos+10,y=yPos+offset)
 
-        self.miEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.mi,justify="center")
+        # self.miEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.mi,justify="center")
+        self.miEntry = ttk.Label(self,width=2,font=("Arial",18,""),textvariable=self.mi,justify="center")
         self.miEntry.place(x=xPos+50,y=yPos)
+        self.miEntry.config({"background":"#ffffff"})
         # miLabel = ttk.Label(self,text="MINS").place(x=xPos+60,y=yPos+offset)
 
-        self.secEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.sec,justify="center")
+        # self.secEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.sec,justify="center")
+        self.miEntry.config({"background":"#ffffff"})
         self.secEntry.place(x=xPos+100,y=yPos)
+        self.secEntry.config({"background":"#ffffff"})
         # secLabel = ttk.Label(self,text="SECS").place(x=xPos+110,y=yPos+offset)
 
         stop_btn = tk.Button(self,text="stop",bd='1',font=myFont,command=self.stop_timer)
         stop_btn.place(x=130,y=120)
+        stop_btn.config({"background":"#bed2e0"})
         btn = tk.Button(self,text="plot",bd='1',font=myFont,command=lambda:plot_data(create_window()))
         btn.pack(side="right")
         #lambda:submit(0)
@@ -103,12 +110,12 @@ class SittingApp(tk.Tk):
         self.sec.set("00")
 
     def init_values(self):
-        self.hrEntry.delete(0,tk.END)
+        """self.hrEntry.delete(0,tk.END)
         self.hrEntry.insert(0, "00")
         self.miEntry.delete(0,tk.END)
         self.miEntry.insert(0,"00")
         self.secEntry.delete(0,tk.END)
-        self.secEntry.insert(0,"00")
+        self.secEntry.insert(0,"00")"""
         self.got_time = 0
         self.hr.set("00")
         self.mi.set("00")
@@ -134,6 +141,7 @@ class SittingApp(tk.Tk):
                 self.bot_msg.config({"background":"#ffff00"})
                 self.warn_msg.config({"background":"#ffff00"})
                 self.warn.set("Get up and stand up!")
+                self.hrLabel.config({"background":"#ffff00"})
                 # this function runs every second until STOP btn is pressed
                 # run_popUp(str(upTime))
                 self.attributes("-topmost", True)
@@ -144,6 +152,7 @@ class SittingApp(tk.Tk):
                 self.configure({"background":self.DEFAULT_COLOR})
                 self.bot_msg.config({"background":self.DEFAULT_COLOR})
                 self.warn_msg.config({"background":self.DEFAULT_COLOR})
+                self.hrLabel.config({"background":self.DEFAULT_COLOR})
                 self.warn.set("")
                 # self.attributes('-topmost', 1)
 
@@ -160,7 +169,8 @@ class SittingApp(tk.Tk):
 
     def stop_timer(self):
         # when leaving sit, should store time into string an display on Label
-        sit_time = f"{self.hrEntry.get()}:{self.miEntry.get()}:{self.secEntry.get()}"
+        # sit_time = f"{self.hrEntry.get()}:{self.miEntry.get()}:{self.secEntry.get()}"
+        sit_time = f"{self.hr.get()}:{self.mi.get()}:{self.sec.get()}"
         curr_time = time.localtime() #datetime.now()
         # must read file and then append new time
         # with open("sat_time.txt") as satFile:
@@ -172,7 +182,7 @@ class SittingApp(tk.Tk):
 
         self.init_values()
         self.submit(self.got_time)
-        print("stop button pressed")
+        print(self.got_time,"stop button pressed")
 
     def write_info(self,new_data):
         """with open(filename,"r") as inFile:
