@@ -76,23 +76,23 @@ class SittingApp(tk.Tk):
 
         # self.hrEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.hr,justify="center")
         self.hrEntry = ttk.Label(self,width=2,font=("Arial",18,""),textvariable=self.hr,justify="center")
-        self.hrEntry.place(x=xPos,y=yPos)
+        self.hrEntry.place(x=xPos+10,y=yPos)
         self.hrEntry.config({"background":"#ffffff"})
         # gray out the whole entry, should use label instead
         # self.hrEntry.configure(state="disabled")
     
-        self.hrLabel = ttk.Label(self,text="HRS        MINS      SECS")
+        self.hrLabel = ttk.Label(self,text="HRS     MINS    SECS")
         self.hrLabel.place(x=xPos+10,y=yPos+offset)
 
         # self.miEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.mi,justify="center")
         self.miEntry = ttk.Label(self,width=2,font=("Arial",18,""),textvariable=self.mi,justify="center")
-        self.miEntry.place(x=xPos+50,y=yPos)
+        self.miEntry.place(x=xPos+60,y=yPos)
         self.miEntry.config({"background":"#ffffff"})
         # miLabel = ttk.Label(self,text="MINS").place(x=xPos+60,y=yPos+offset)
 
         # self.secEntry = tk.Entry(self,width=3,font=("Arial",18,""),textvariable=self.sec,justify="center")
-        self.miEntry.config({"background":"#ffffff"})
-        self.secEntry.place(x=xPos+100,y=yPos)
+        self.secEntry = ttk.Label(self,width=2,font=("Arial",18,""),textvariable=self.sec,justify="center")
+        self.secEntry.place(x=xPos+110,y=yPos)
         self.secEntry.config({"background":"#ffffff"})
         # secLabel = ttk.Label(self,text="SECS").place(x=xPos+110,y=yPos+offset)
 
