@@ -110,6 +110,9 @@ class SittingApp(tk.Tk):
         self.secEntry.delete(0,tk.END)
         self.secEntry.insert(0,"00")
         self.got_time = 0
+        self.hr.set("00")
+        self.mi.set("00")
+        self.sec.set("00")
    
     def submit(self,temp=0):
         upTime = 40 #minutes
