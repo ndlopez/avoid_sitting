@@ -3,9 +3,13 @@
 Avoid sitting: GUI app built using Tkinter, Pandas, and Matplotlib
 
 ![init window](avoid_sitting.png)
-![over 35min](avoid_35min.png)
+![over 35min](sitting_40min_over.png)
 
-This small app tells you how many minutes you have been sitting. Displaying a warning after 35 minutes. So to remind you to stand up. 
+This small app tells you how many minutes you have been sitting. Displaying a warning after 35 minutes. The main window appears over all windows, to remind you to stand up. Unless [Stop] button is not pressed, the background of the window and its omnipresence will not be reset up.
+
+The app records data every time the [Stop] button is pressed and saves it to a temp file "sitting_app.csv" to later be plotted by pressing the [Plot] button on a new window.
+
+![Sample graph](sitting_graph_sample.png)
 
 Less sitting and More moving contribute to better health. Start by simply standing rather than sitting whenever possible. Follow these ways to improve your health:
 
@@ -21,7 +25,7 @@ $ python3 avoid_sitting.py 2023/03/28
 
  Release
 
-Not available yet on any OS. I dont own a Windows PC and even if I will get to own one I will never install Python on it. 
+Not available.
 
 ## Running Environment
 Back in 2018 the only working PC I had was this Acer notebook I bought back in 2009, almost 10yrs and operating just fine.
